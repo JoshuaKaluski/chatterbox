@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import {Chat} from './Chat'
+import {Chat} from './Chat/Chat'
 import './App.css';
 
 function App() {
