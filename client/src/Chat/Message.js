@@ -6,16 +6,25 @@ import {makeStyles} from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-    display: 'flex'
+    display: 'flex',
+    justifyContent: props => props.incoming ? 'flex-start' : 'flex-end'
   },
   message: {
-    width: '40%'
+    display: 'flex',
+    width: '45%',
+    backgroundColor: props => props.incoming ? 'steelblue' : 'lightgreen',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'wrap'
+  },
+  incoming: {
+    alignItems: 'flex-end'
   }
 }));
 
 const Message = (props) => {
-  const {message} = props;
-  const classes = useStyles();
+  const {message, incoming} = props;
+  const classes = useStyles(props);
 
   return (
     <div className={classes.root}>

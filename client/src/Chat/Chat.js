@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Paper from '@material-ui/core/Paper/index';
 import Box from '@material-ui/core/Box/index';
 import Grid from '@material-ui/core/Grid/index';
@@ -15,33 +15,46 @@ const ENDPOINT = 'http://localhost:5000';
 
 var socket;
 
-const testMessages = [
-  {
-    incoming: true,
-    message: 'Hello mate'
-  },
-  {
-    incoming: false,
-    message: 'Hola, just finished mowing the lawn'
-  },
-  {
-    incoming: true,
-    message: 'Wow, that sucks...'
-  }
-];
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    height: '15em',
+    height: 'auto',
     justifyContent: 'space-between'
   }
 
 }));
 
 const Chat = () => {
+  const [testMessages, setTestMessages] = useState([
+    {
+      incoming: true,
+      message: 'Hello mate'
+    },
+    {
+      incoming: false,
+      message: 'Hola, just finished mowing the lawn'
+    },
+    {
+      incoming: true,
+      message: 'Wow, that sucks...'
+    },
+    {
+      incoming: false,
+      message: 'Wow this is going to be a super long message to see if everything wraps properly!'
+    }
+  ]);
+
+  const addMessage = message => {
+    let newMessage = {
+      incoming: false,
+      message
+    };
+
+    setTestMessages([...testMessages, newMessage]);
+  };
+
   const classes = useStyles();
 
   useEffect(() => {
@@ -56,7 +69,7 @@ const Chat = () => {
     <Box m={2}>
       <Paper className={classes.root}>
         <Messages messages={testMessages}/>
-        <Input/>
+        <Input addMessage={addMessage}/>
       </Paper>
     </Box>
   )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/core";
@@ -20,10 +20,26 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
+
 const Input = (props) => {
+  const {addMessage} = props;
+
   const classes = useStyles();
+
+  const [message, setMessage] = useState('');
+
+  const onChange = e => {
+    setMessage(e.target.value);
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+    addMessage(message);
+  };
+
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={onSubmit}>
       <div className={classes.text}>
         <TextField
           variant='outlined'
@@ -31,6 +47,8 @@ const Input = (props) => {
           name='message'
           id='message'
           margin='normal'
+          value={message}
+          onChange={onChange}
           fullWidth
         />
       </div>
