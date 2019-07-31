@@ -11,14 +11,15 @@ const useStyles = makeStyles(theme => ({
   },
   message: {
     display: 'flex',
+    margin: theme.spacing(1.5),
     width: '45%',
     backgroundColor: props => props.incoming ? 'steelblue' : 'lightgreen',
     alignItems: 'center',
     justifyContent: 'center',
     flexWrap: 'wrap'
   },
-  incoming: {
-    alignItems: 'flex-end'
+  text: {
+    padding: theme.spacing(1)
   }
 }));
 
@@ -29,7 +30,7 @@ const Message = (props) => {
   return (
     <div className={classes.root}>
       <Paper className={classes.message}>
-        <Typography variant='body1'>{message}</Typography>
+        <Typography className={classes.text} variant='body1'>{message}</Typography>
       </Paper>
     </div>
 

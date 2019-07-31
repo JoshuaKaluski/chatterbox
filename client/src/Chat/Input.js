@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const Input = (props) => {
-  const {addMessage} = props;
+  const {outgoingMessage} = props;
 
   const classes = useStyles();
 
@@ -35,7 +35,8 @@ const Input = (props) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    addMessage(message);
+    outgoingMessage(message);
+    setMessage('');
   };
 
   return (
