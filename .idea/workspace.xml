@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a8e042b-8ca6-4b93-b6ea-a6ef19f0d13a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/ChatroomManager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/avatars.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/ClientManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/ClientManager.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,11 +35,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/ChatroomManager.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="705">
               <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/avatars.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1128">
+              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/ClientManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="45" selection-start-column="45" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -76,6 +95,8 @@
         <option value="$PROJECT_DIR$/config/chatrooms.js" />
         <option value="$PROJECT_DIR$/server/chatroomManager.js" />
         <option value="$PROJECT_DIR$/server/ChatroomManager.js" />
+        <option value="$PROJECT_DIR$/config/avatars.js" />
+        <option value="$PROJECT_DIR$/server/ClientManager.js" />
       </list>
     </option>
   </component>
@@ -116,7 +137,19 @@
               <item name="chatterbox" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="avatars" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatterbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatterbox" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="chatrooms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatterbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatterbox" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatterbox" type="b2602c69:ProjectViewProjectNode" />
@@ -177,7 +210,7 @@
       <workItem from="1564252779706" duration="9763000" />
       <workItem from="1564609696804" duration="9333000" />
       <workItem from="1564621970354" duration="54000" />
-      <workItem from="1564692128242" duration="717000" />
+      <workItem from="1564692128242" duration="2207000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1564180221015</created>
@@ -235,11 +268,25 @@
       <option name="project" value="LOCAL" />
       <updated>1564621758208</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Created ChatroomManager">
+      <created>1564692881609</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1564692881609</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Created ClientManager">
+      <created>1564693405879</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1564693405879</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26799000" />
+    <option name="totallyTimeSpent" value="28289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="38" width="3840" height="2122" extended-state="6" />
@@ -259,7 +306,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299025" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5002633" side_tool="true" weight="0.3299025" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4997367" weight="0.32918245" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4997367" visible="true" weight="0.32881907" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -279,7 +326,9 @@
     <MESSAGE value="Connected front and backend" />
     <MESSAGE value="Created Chatroom schema" />
     <MESSAGE value="Created chatrooms for 5 different fandoms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created chatrooms for 5 different fandoms" />
+    <MESSAGE value="Created ChatroomManager" />
+    <MESSAGE value="Created ClientManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created ClientManager" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -379,13 +428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/chatrooms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/Chatroom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1316">
@@ -397,6 +439,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
           <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/chatrooms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/avatars.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1128">
+          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/ClientManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="45" selection-start-column="45" selection-end-column="45" />
         </state>
       </provider>
     </entry>

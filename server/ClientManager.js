@@ -1,3 +1,5 @@
+const avatars = require('../config/avatars');
+
 module.exports = () => {
   const clients = new Map();
 
