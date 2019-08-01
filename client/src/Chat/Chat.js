@@ -1,12 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Paper from '@material-ui/core/Paper/index';
 import Box from '@material-ui/core/Box/index';
-import Grid from '@material-ui/core/Grid/index';
-import Button from '@material-ui/core/Button/index';
-import TextField from '@material-ui/core/TextField/index';
 import {makeStyles} from "@material-ui/core/styles/index";
 import SocketContext from '../SocketContext';
-import {Typography} from "@material-ui/core/index";
 
 import Messages from './Messages';
 import Input from './Input';
