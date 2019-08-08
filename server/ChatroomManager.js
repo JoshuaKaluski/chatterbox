@@ -11,11 +11,11 @@ module.exports = () => {
   );
 
   function getChatroom(name) {
-    chatrooms.get(name)
+    return chatrooms.get(name);
   }
   
   function removeClient(client) {
-    chatrooms.forEach(chatroom => chatroom.removeClient(client))
+    chatrooms.forEach(chatroom => chatroom.removeClient(client));
   }
 
   function serialize() {

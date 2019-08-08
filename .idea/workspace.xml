@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a8e042b-8ca6-4b93-b6ea-a6ef19f0d13a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/avatars.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/handlers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/ChatroomManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/ChatroomManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/ClientManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/ClientManager.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,17 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/Chatroom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1316">
+            <state relative-caret-position="1034">
               <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/chatrooms.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -38,26 +30,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/ChatroomManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+            <state relative-caret-position="799">
+              <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/avatars.js">
+        <entry file="file://$PROJECT_DIR$/server/ClientManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1128">
-              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+            <state relative-caret-position="893">
+              <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/ClientManager.js">
+        <entry file="file://$PROJECT_DIR$/server/handlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="45" selection-start-column="45" selection-end-column="45" />
+            <state relative-caret-position="3384">
+              <caret line="72" column="4" lean-forward="true" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -94,16 +95,17 @@
         <option value="$PROJECT_DIR$/server/Chatroom.js" />
         <option value="$PROJECT_DIR$/config/chatrooms.js" />
         <option value="$PROJECT_DIR$/server/chatroomManager.js" />
-        <option value="$PROJECT_DIR$/server/ChatroomManager.js" />
         <option value="$PROJECT_DIR$/config/avatars.js" />
+        <option value="$PROJECT_DIR$/server/ChatroomManager.js" />
         <option value="$PROJECT_DIR$/server/ClientManager.js" />
+        <option value="$PROJECT_DIR$/server/handlers.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1405" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="1920" />
     <option name="y" value="38" />
-    <option name="width" value="2435" />
+    <option name="width" value="1920" />
     <option name="height" value="2122" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -114,6 +116,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,7 +163,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,7 +212,8 @@
       <workItem from="1564252779706" duration="9763000" />
       <workItem from="1564609696804" duration="9333000" />
       <workItem from="1564621970354" duration="54000" />
-      <workItem from="1564692128242" duration="2207000" />
+      <workItem from="1564692128242" duration="2266000" />
+      <workItem from="1565215642777" duration="6892000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1564180221015</created>
@@ -282,17 +285,24 @@
       <option name="project" value="LOCAL" />
       <updated>1564693405879</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added avatars">
+      <created>1564694362728</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1564694362728</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28289000" />
+    <option name="totallyTimeSpent" value="35240000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="38" width="3840" height="2122" extended-state="6" />
+    <frame x="1920" y="38" width="1920" height="2122" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986835" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.31789136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -306,7 +316,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299025" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5002633" side_tool="true" weight="0.3299025" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4997367" visible="true" weight="0.32881907" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4997367" weight="0.32864103" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -328,7 +338,8 @@
     <MESSAGE value="Created chatrooms for 5 different fandoms" />
     <MESSAGE value="Created ChatroomManager" />
     <MESSAGE value="Created ClientManager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created ClientManager" />
+    <MESSAGE value="Added avatars" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added avatars" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -350,13 +361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="987">
           <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="658">
-          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -428,17 +432,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/Chatroom.js">
+    <entry file="file://$PROJECT_DIR$/config/avatars.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1316">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/ChatroomManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        <state relative-caret-position="1128">
+          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -449,17 +446,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/avatars.js">
+    <entry file="file://$PROJECT_DIR$/server/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1128">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+        <state relative-caret-position="799">
+          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/ChatroomManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/Chatroom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/ClientManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="45" selection-start-column="45" selection-end-column="45" />
+        <state relative-caret-position="893">
+          <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/handlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3384">
+          <caret line="72" column="4" lean-forward="true" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
         </state>
       </provider>
     </entry>

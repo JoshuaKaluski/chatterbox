@@ -4,15 +4,25 @@ module.exports = () => {
   const clients = new Map();
 
   function addClient(client) {
-    clients.set(client.id, {client})
+    clients.set(client.id, {client});
+  }
+
+  function registerClient(client, user) {
+    clients.set(client.id, {client, user});
+  }
+
+  function getClientById(clientId) {
+    return clients.get(clientId);
   }
   
   function removeClient(client) {
-    client.delete(client.id)
+    clients.delete(client.id);
   }
 
   return {
     addClient,
+    registerClient,
+    getClientById,
     removeClient
   }
 };
