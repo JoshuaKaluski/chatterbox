@@ -19,6 +19,7 @@ const chatroomManager = ChatroomManager();
 
 io.sockets.on('connection', client => {
   const {
+    handleRegister,
     handleJoin,
     handleLeave,
     handleMessage,
@@ -29,7 +30,7 @@ io.sockets.on('connection', client => {
   console.log('A user connected with id: ' + client.id);
   clientManager.addClient(client);
 
-  //client.on('register', handleRegister);
+  client.on('register', handleRegister);
 
   client.on('join', handleJoin);
 

@@ -45,6 +45,12 @@ function makeHandleEvent(client, clientManager, chatroomManager) {
 module.exports = (client, clientManager, chatroomManager) => {
   const handleEvent = makeHandleEvent(client, clientManager, chatroomManager);
 
+  function handleRegister(user, callback) {
+    clientManager.registerClient(client, user);
+
+    return callback(null, user);
+  }
+
   async function handleJoin(chatroomName, callback) {
     const createEntry = () => ({event: `Joined ${chatroomName}`});
 
@@ -88,6 +94,7 @@ module.exports = (client, clientManager, chatroomManager) => {
   }
 
   return {
+    handleRegister,
     handleJoin,
     handleLeave,
     handleMessage,
