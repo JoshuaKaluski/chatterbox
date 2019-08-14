@@ -1,24 +1,35 @@
 import React, {useState} from 'react';
-import {Card, Avatar, TextField} from "@material-ui/core";
+import {Card, Avatar, TextField, Button, CardContent, CardActions} from "@material-ui/core";
+
 
 function UserForm() {
   const [state, setState] = useState({
-    avatar: '',
+    image: '',
     name: ''
   });
 
+  const onChange = e => {
+    setState({...state, [e.target.name]: e.target.value});
+  };
 
   return (
     <form>
       <Card>
-        <Avatar>Pick an Avatar</Avatar>
-        <TextField
-          id="name"
-          name="name"
-          label="Name"
-          margin="normal"
-          variant="outlined"
-        />
+        <CardContent>
+          <Avatar>Pick an Avatar</Avatar>
+          <TextField
+            id="name"
+            name="name"
+            label="Name"
+            margin="normal"
+            variant="outlined"
+            value={state.name}
+            onChange={onChange}
+          />
+        </CardContent>
+        <CardActions>
+          <Button variant="contained" color="primary" type="submit">Create User</Button>
+        </CardActions>
       </Card>
     </form>
   )
