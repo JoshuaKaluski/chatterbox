@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
-import Landing from './Landing';
+import Landing from './Landing/Landing';
 import socket from './socket';
 
 function App() {
