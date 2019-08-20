@@ -16,7 +16,7 @@ function UserForm() {
     <form>
       <Card>
         <CardContent>
-          <Avatar>Pick an Avatar</Avatar>
+          <Avatar style={{width: 150, height: 150}}>Pick an Avatar</Avatar>
           <TextField
             id="name"
             name="name"

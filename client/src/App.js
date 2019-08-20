@@ -3,6 +3,7 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import Landing from './Landing/Landing';
+import Chatrooms from './Chatrooms/Chatrooms';
 import socket from './socket';
 
 function App() {
@@ -15,7 +16,10 @@ function App() {
   });
 
   //Get all chatrooms when first loaded
-  useEffect(() => getChatrooms(), []);
+  useEffect(() => {
+    getChatrooms();
+    console.log('loaded chatrooms');
+  }, []);
 
   const onEnterChatroom = (chatroomName, noUser, success) => {
     if (!state.user) {
@@ -36,7 +40,10 @@ function App() {
     })
   };
 
-  const getChatrooms = () => state.client.getChatrooms((err, chatrooms) => setState({...state, chatrooms}));
+  const getChatrooms = () => state.client.getChatrooms((err, chatrooms) => {
+    setState({...state, chatrooms});
+    console.log(state.chatrooms);
+  });
 
   const register = (name, avatar) => {
     //Reset registerInProcess to false
@@ -50,14 +57,48 @@ function App() {
     })
   };
 
+  const chatroomOrRedirect = (chatroom, {history}) => {
+    const {chatLog} = history.location.state;
+
+    if (!state.user) {
+      return <Redirect to='/' />
+    } else {
+      //TODO render individual chatroom
+      return <div />
+    }
+  };
+
   return (
     <MuiThemeProvider>
       <Switch>
         <Route exact path='/' render={props => (
           <Landing
-            chatrooms={state.chatrooms}
+            register={register}
           />
         )}/>
+        <Route
+          exact path='/chatrooms'
+          render={props => (
+            <Chatrooms
+              chatrooms={state.chatrooms}
+              user={state.user}
+              onEnterChatroom={chatroomName => onEnterChatroom(
+                chatroomName,
+                () => props.history.push('/'),
+                chatLog => props.history.push(chatroomName, {chatLog})
+              )}
+            />
+          )}
+        />
+        {
+          state.chatrooms.map(chatroom => (
+            <Route
+              key={chatroom.name}
+              exact path={`/${chatroom.name}`}
+              render={props => chatroomOrRedirect(chatroom, props)}
+            />
+          ))
+        }
       </Switch>
     </MuiThemeProvider>
   );
