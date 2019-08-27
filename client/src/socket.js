@@ -1,8 +1,8 @@
 import io from 'socket.io-client';
-const ENDPOINT = 'http://localhost:5000';
+const ENDPOINT = 'ws://localhost:5000';
 
 export default () => {
-  const socket = io.connect(ENDPOINT);
+  const socket = io(ENDPOINT, {transports: ['websocket']});
 
   const registerHandler = onMessageReceived => socket.on('message', onMessageReceived);
 

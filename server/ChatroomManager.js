@@ -19,7 +19,7 @@ module.exports = () => {
   }
 
   function serialize() {
-    return Array.from(chatrooms.values().map(chatroom => chatroom.getChatroomInfo()))
+    return Array.from(chatrooms.map(chatroom => chatroom.getChatroomInfo()))
   }
 
   return {

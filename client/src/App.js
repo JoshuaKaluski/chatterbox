@@ -41,8 +41,9 @@ function App() {
   };
 
   const getChatrooms = () => state.client.getChatrooms((err, chatrooms) => {
+    console.log(err);
     setState({...state, chatrooms});
-    console.log(state.chatrooms);
+    console.log(chatrooms);
   });
 
   const register = (name, avatar) => {
@@ -65,6 +66,20 @@ function App() {
     } else {
       //TODO render individual chatroom
       return <div />
+    }
+  };
+
+  const chatroomRoutes = chatrooms => {
+    if (chatrooms) {
+      return chatrooms.map(chatroom => (
+        <Route
+          key={chatroom.name}
+          exact path={`/${chatroom.name}`}
+          render={props => chatroomOrRedirect(chatroom, props)}
+        />
+      ))
+    } else {
+      console.log('No chatrooms...')
     }
   };
 
@@ -91,13 +106,7 @@ function App() {
           )}
         />
         {
-          state.chatrooms.map(chatroom => (
-            <Route
-              key={chatroom.name}
-              exact path={`/${chatroom.name}`}
-              render={props => chatroomOrRedirect(chatroom, props)}
-            />
-          ))
+          chatroomRoutes(state.chatrooms)
         }
       </Switch>
     </MuiThemeProvider>

@@ -81,7 +81,6 @@ module.exports = (client, clientManager, chatroomManager) => {
   }
   
   function handleGetChatrooms(_, callback) {
-    console.log(_);
     return callback(null, chatroomManager.serialize());
   }
 
