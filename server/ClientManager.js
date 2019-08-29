@@ -5,6 +5,7 @@ module.exports = () => {
 
   function addClient(client) {
     clients.set(client.id, {client});
+    console.log(clients);
   }
 
   function registerClient(client, user) {

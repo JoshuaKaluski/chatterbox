@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
 
+//CORS
 app.use((req, res, next) => {
   const origin = req.get('origin');
   res.header('Access-Control-Allow-Origin', origin);

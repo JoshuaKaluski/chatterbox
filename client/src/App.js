@@ -6,27 +6,21 @@ import Landing from './Landing/Landing';
 import Chatrooms from './Chatrooms/Chatrooms';
 import socket from './socket';
 
+import useToggle from './hooks/useToggle';
+
 function App() {
   //State
-  const [state, setState] = useState({
-    user: null,
-    registerInProcess: false,
-    client: socket(),
-    chatrooms: null
-  });
-
-  //Get all chatrooms when first loaded
-  useEffect(() => {
-    getChatrooms();
-    console.log('loaded chatrooms');
-  }, []);
+  const [user, setUser] = useState(null);
+  const [registerInProgress, toggleRegisterInProgress] = useToggle(false);
+  const [client, setClient] = useState(null);
+  const [chatrooms, setChatrooms] = useState(null);
 
   const onEnterChatroom = (chatroomName, noUser, success) => {
-    if (!state.user) {
+    if (user) {
       return noUser();
     }
 
-    return state.client.join(chatroomName, (err, chatLog) => {
+    return client.join(chatroomName, (err, chatLog) => {
       if (err) return console.error(err);
 
       return success(chatLog);
@@ -34,25 +28,28 @@ function App() {
   };
 
   const onLeaveChatroom = (chatroomName, success) => {
-    state.client.leave(chatroomName, err => {
+    client.leave(chatroomName, err => {
       if (err) return console.error(err);
       return success();
     })
   };
 
-  const getChatrooms = () => state.client.getChatrooms((err, chatrooms) => {
-    console.log(err);
-    setState({...state, chatrooms});
-    console.log(chatrooms);
+  const getChatrooms = () => client.getChatrooms((err, chatrooms) => {
+    console.log('Getting chatrooms');
+    if (err) return console.error(err);
+    return chatrooms;
   });
 
   const register = (name, avatar) => {
     //Reset registerInProcess to false
-    const registerResponse = user => setState({...state, registerInProcess: false, user});
+    const registerResponse = user => {
+      setUser(user);
+      toggleRegisterInProgress();
+    };
 
     //Register flow
-    setState({...state, registerInProcess: true});
-    state.client.register(name, avatar, (err, user) => {
+    toggleRegisterInProgress();
+    client.register(name, avatar, (err, user) => {
       if (err) return registerResponse(null);
       return registerResponse(user);
     })
@@ -61,7 +58,7 @@ function App() {
   const chatroomOrRedirect = (chatroom, {history}) => {
     const {chatLog} = history.location.state;
 
-    if (!state.user) {
+    if (!user) {
       return <Redirect to='/' />
     } else {
       //TODO render individual chatroom
@@ -70,7 +67,7 @@ function App() {
   };
 
   const chatroomRoutes = chatrooms => {
-    if (chatrooms) {
+    if (chatrooms !== null) {
       return chatrooms.map(chatroom => (
         <Route
           key={chatroom.name}
@@ -82,6 +79,22 @@ function App() {
       console.log('No chatrooms...')
     }
   };
+
+  //ERROR
+  //Get all chatrooms when first loaded and set client
+  useEffect(() => {
+    const client = async () => {
+      return await socket();
+    };
+
+    setClient(client);
+    console.log('Client set');
+    const chatroomData = async () => {
+      const chatrooms = await getChatrooms();
+      return chatrooms;
+    };
+    setChatrooms(chatroomData())
+  }, []);
 
   return (
     <MuiThemeProvider>
@@ -95,8 +108,8 @@ function App() {
           exact path='/chatrooms'
           render={props => (
             <Chatrooms
-              chatrooms={state.chatrooms}
-              user={state.user}
+              chatrooms={chatrooms}
+              user={user}
               onEnterChatroom={chatroomName => onEnterChatroom(
                 chatroomName,
                 () => props.history.push('/'),
@@ -105,9 +118,6 @@ function App() {
             />
           )}
         />
-        {
-          chatroomRoutes(state.chatrooms)
-        }
       </Switch>
     </MuiThemeProvider>
   );

@@ -3,6 +3,7 @@ const ENDPOINT = 'ws://localhost:5000';
 
 export default () => {
   const socket = io(ENDPOINT, {transports: ['websocket']});
+  console.log(socket);
 
   const registerHandler = onMessageReceived => socket.on('message', onMessageReceived);
 
