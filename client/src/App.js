@@ -15,19 +15,6 @@ function App() {
   const [chatrooms, setChatrooms] = useState(null);
   const [client, setClient] = useState(null);
 
-  //Assure only 1 socket gets created
-  if (!client) {
-    const clientCache = window.localStorage.getItem("client");
-    if (!clientCache) {
-      setClient(socket());
-      window.localStorage.setItem("client", client);
-    } else {
-      setClient(clientCache);
-    }
-  }
-
-
-
   const onEnterChatroom = (chatroomName, noUser, success) => {
     if (user) {
       return noUser();
@@ -47,12 +34,12 @@ function App() {
     })
   };
 
-  const getChatrooms = () => {
+  const getChatrooms = async () => {
     console.log(client);
     client.getChatrooms((err, chatrooms) => {
       console.log('Getting chatrooms');
       if (err) return console.error(err);
-      return chatrooms;
+      setChatrooms(chatrooms);
     });
   };
 
@@ -98,11 +85,22 @@ function App() {
 
   //Get all chatrooms when first loaded and set client
   useEffect(() => {
-    const chatroomData = async () => {
-      const chatrooms = await getChatrooms();
-      return chatrooms;
+    const init = async () => {
+      //Assure only 1 socket gets created
+      if (client === null) {
+        const clientCache = window.localStorage.getItem("client");
+        if (clientCache === null) {
+          setClient(socket());
+          window.localStorage.setItem("client", client);
+        } else {
+          setClient(clientCache);
+        }
+      }
     };
-    setChatrooms(chatroomData())
+    init().then(() => {
+      console.log(client);
+      getChatrooms()
+    });
   }, []);
 
   return (
