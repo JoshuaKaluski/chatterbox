@@ -12,8 +12,21 @@ function App() {
   //State
   const [user, setUser] = useState(null);
   const [registerInProgress, toggleRegisterInProgress] = useToggle(false);
-  const [client, setClient] = useState(null);
   const [chatrooms, setChatrooms] = useState(null);
+  const [client, setClient] = useState(null);
+
+  //Assure only 1 socket gets created
+  if (!client) {
+    const clientCache = window.localStorage.getItem("client");
+    if (!clientCache) {
+      setClient(socket());
+      window.localStorage.setItem("client", client);
+    } else {
+      setClient(clientCache);
+    }
+  }
+
+
 
   const onEnterChatroom = (chatroomName, noUser, success) => {
     if (user) {
@@ -34,11 +47,14 @@ function App() {
     })
   };
 
-  const getChatrooms = () => client.getChatrooms((err, chatrooms) => {
-    console.log('Getting chatrooms');
-    if (err) return console.error(err);
-    return chatrooms;
-  });
+  const getChatrooms = () => {
+    console.log(client);
+    client.getChatrooms((err, chatrooms) => {
+      console.log('Getting chatrooms');
+      if (err) return console.error(err);
+      return chatrooms;
+    });
+  };
 
   const register = (name, avatar) => {
     //Reset registerInProcess to false
@@ -80,15 +96,8 @@ function App() {
     }
   };
 
-  //ERROR
   //Get all chatrooms when first loaded and set client
   useEffect(() => {
-    const client = async () => {
-      return await socket();
-    };
-
-    setClient(client);
-    console.log('Client set');
     const chatroomData = async () => {
       const chatrooms = await getChatrooms();
       return chatrooms;
