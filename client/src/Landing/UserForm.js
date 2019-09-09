@@ -1,6 +1,33 @@
 import React, {useState} from 'react';
 import {Card, Avatar, TextField, Button, CardContent, CardActions} from "@material-ui/core";
+import {makeStyles} from "@material-ui/styles";
 
+const useStyles = makeStyles({
+  card: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '3em',
+    boxShadow: '0px 15px 35px -5px rgba(50, 88, 130, 0.32)',
+    padding: '1em',
+    overflow: 'visible',
+  },
+  content: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  avatar: {
+    width: '150px',
+    height: '150px',
+    top: '-100px',
+  },
+  input: {
+    top: '-60px'
+  }
+});
 
 function UserForm() {
   const [state, setState] = useState({
@@ -12,12 +39,15 @@ function UserForm() {
     setState({...state, [e.target.name]: e.target.value});
   };
 
+  const classes = useStyles();
+
   return (
     <form>
-      <Card>
-        <CardContent>
-          <Avatar style={{width: 150, height: 150}}>Pick an Avatar</Avatar>
+      <Card className={classes.card}>
+        <CardContent className={classes.content}>
+          <Avatar className={classes.avatar}>Pick an Avatar</Avatar>
           <TextField
+            className={classes.input}
             id="name"
             name="name"
             label="Name"

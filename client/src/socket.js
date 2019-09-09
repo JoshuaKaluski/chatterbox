@@ -23,6 +23,7 @@ export default () => {
   socket.on('error', err => console.log(`Received socket error: ${err}`));
 
   return {
+    socket,
     register,
     join,
     leave,

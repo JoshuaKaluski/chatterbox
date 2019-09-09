@@ -39,7 +39,7 @@ function App() {
     })
   };
 
-  const getChatrooms = async () => {
+  const getChatrooms = () => {
     console.log(client);
     client.getChatrooms((err, chatrooms) => {
       console.log('Getting chatrooms');
@@ -88,9 +88,9 @@ function App() {
     }
   };
 
-  //Get all chatrooms when first loaded and set client
+  //Get all chatrooms when first loaded
   useEffect(() => {
-    setTimeout(() => getChatrooms(), 5000);
+    getChatrooms();
   }, []);
 
   return (
