@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
-import {Card, Avatar, TextField, Button, CardContent, CardActions} from "@material-ui/core";
+import {Card, Avatar, TextField, Button, CardContent, CardActions, DialogTitle, DialogContent} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
+import Dialog from "@material-ui/core/Dialog";
+
+import avatars from '/config/avatars';
 
 const useStyles = makeStyles({
   card: {
@@ -31,12 +34,35 @@ const useStyles = makeStyles({
 
 function UserForm() {
   const [state, setState] = useState({
-    image: '',
+    image: null,
     name: ''
   });
+  const [open, setOpen] = useState(false);
 
   const onChange = e => {
     setState({...state, [e.target.name]: e.target.value});
+  };
+
+  const openDialog = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const renderAvatarDialog = () => {
+    return (
+      <Dialog
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogTitle>Pick your avatar</DialogTitle>
+        <DialogContent>
+
+        </DialogContent>
+      </Dialog>
+    )
   };
 
   const classes = useStyles();
