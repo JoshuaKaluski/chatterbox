@@ -20,6 +20,8 @@ export default () => {
 
   const getChatrooms = callback => socket.emit('chatrooms', null, callback);
 
+  const getAvatars = callback => socket.emit('avatars', null, callback);
+
   socket.on('error', err => console.log(`Received socket error: ${err}`));
 
   return {
@@ -29,6 +31,7 @@ export default () => {
     leave,
     message,
     getChatrooms,
+    getAvatars,
     registerHandler,
     unregisterHandler
   }

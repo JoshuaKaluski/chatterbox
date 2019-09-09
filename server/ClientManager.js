@@ -15,6 +15,10 @@ module.exports = () => {
   function getClientById(clientId) {
     return clients.get(clientId);
   }
+
+  function getAvatars() {
+    return avatars;
+  }
   
   function removeClient(client) {
     clients.delete(client.id);
@@ -24,6 +28,7 @@ module.exports = () => {
     addClient,
     registerClient,
     getClientById,
+    getAvatars,
     removeClient
   }
 };

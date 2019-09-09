@@ -84,6 +84,10 @@ module.exports = (client, clientManager, chatroomManager) => {
     return callback(null, chatroomManager.serialize());
   }
 
+  function handleGetAvatars(_, callback) {
+    return callback(null, clientManager.getAvatars());
+  }
+
   function handleDisconnect() {
     //Remove user profile
     clientManager.removeClient(client);
@@ -98,6 +102,7 @@ module.exports = (client, clientManager, chatroomManager) => {
     handleLeave,
     handleMessage,
     handleGetChatrooms,
+    handleGetAvatars,
     handleDisconnect
   }
 };

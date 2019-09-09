@@ -99,6 +99,7 @@ function App() {
         <Route exact path='/' render={props => (
           <Landing
             register={register}
+            getAvatars={client.getAvatars}
           />
         )}/>
         <Route

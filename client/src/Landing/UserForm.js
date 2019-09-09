@@ -1,9 +1,22 @@
-import React, {useState} from 'react';
-import {Card, Avatar, TextField, Button, CardContent, CardActions, DialogTitle, DialogContent} from "@material-ui/core";
+import React, {useEffect, useState} from 'react';
+import {
+  Card,
+  Avatar,
+  TextField,
+  Button,
+  CardContent,
+  CardActions,
+  DialogTitle,
+  DialogContent,
+  List,
+  ListItem,
+  ListItemAvatar, ListItemText
+} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
 import Dialog from "@material-ui/core/Dialog";
+import AvatarDialog from "./AvatarDialog";
 
-import avatars from '/config/avatars';
+
 
 const useStyles = makeStyles({
   card: {
@@ -32,62 +45,64 @@ const useStyles = makeStyles({
   }
 });
 
-function UserForm() {
+function UserForm(props) {
   const [state, setState] = useState({
-    image: null,
+    avatar: null,
     name: ''
   });
   const [open, setOpen] = useState(false);
+  const [avatars, setAvatars] = useState(() => {
+    props.getAvatars((error, avatars) => {
+      console.log(typeof avatars);
+      console.log(avatars);
+      setAvatars(avatars);
+    });
+  });
 
   const onChange = e => {
     setState({...state, [e.target.name]: e.target.value});
   };
 
   const openDialog = () => {
+    console.log(avatars);
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleSelection = value => {
     setOpen(false);
-  };
-
-  const renderAvatarDialog = () => {
-    return (
-      <Dialog
-        open={open}
-        onClose={handleClose}
-      >
-        <DialogTitle>Pick your avatar</DialogTitle>
-        <DialogContent>
-
-        </DialogContent>
-      </Dialog>
-    )
+    setState({...state, avatar: value});
   };
 
   const classes = useStyles();
 
   return (
-    <form>
-      <Card className={classes.card}>
-        <CardContent className={classes.content}>
-          <Avatar className={classes.avatar}>Pick an Avatar</Avatar>
-          <TextField
-            className={classes.input}
-            id="name"
-            name="name"
-            label="Name"
-            margin="normal"
-            variant="outlined"
-            value={state.name}
-            onChange={onChange}
-          />
-        </CardContent>
-        <CardActions>
-          <Button variant="contained" color="primary" type="submit">Create User</Button>
-        </CardActions>
-      </Card>
-    </form>
+    <>
+      <form>
+        <Card className={classes.card}>
+          <CardContent className={classes.content}>
+            {(state.avatar === null) ?
+              <Avatar className={classes.avatar} onClick={() => openDialog()}>Pick an Avatar</Avatar>
+              :
+              <Avatar className={classes.avatar} alt={state.avatar.name} src={state.avatar.image} onClick={() => openDialog()} />
+            }
+            <TextField
+              className={classes.input}
+              id="name"
+              name="name"
+              label="Name"
+              margin="normal"
+              variant="outlined"
+              value={state.name}
+              onChange={onChange}
+            />
+          </CardContent>
+          <CardActions>
+            <Button variant="contained" color="primary" type="submit">Create User</Button>
+          </CardActions>
+        </Card>
+      </form>
+      <AvatarDialog onClose={handleSelection} open={open} avatars={avatars}/>
+    </>
   )
 }
 

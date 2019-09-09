@@ -20,7 +20,7 @@ function Landing(props) {
       <Grid className={classes.root} container direction='column' justify='center' alignItems='center'>
         <Grid className={classes.header} item component={Header} xs={12}/>
         <Grid className={classes.description} item component={Description} xs={12}/>
-        <UserForm className={classes.form} />
+        <UserForm className={classes.form} register={props.register} getAvatars={props.getAvatars}/>
       </Grid>
     </>
   )

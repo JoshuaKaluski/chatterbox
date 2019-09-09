@@ -43,6 +43,7 @@ io.sockets.on('connection', client => {
     handleLeave,
     handleMessage,
     handleGetChatrooms,
+    handleGetAvatars,
     handleDisconnect
   } = makeHandlers(client, clientManager, chatroomManager);
 
@@ -58,6 +59,8 @@ io.sockets.on('connection', client => {
   client.on('message', handleMessage);
 
   client.on('chatrooms', handleGetChatrooms);
+
+  client.on('avatars', handleGetAvatars);
 
   client.on('disconnect', () => {
     console.log(`User ${client.id} disconnected`);
