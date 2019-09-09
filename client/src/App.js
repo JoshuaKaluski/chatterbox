@@ -13,7 +13,12 @@ function App() {
   const [user, setUser] = useState(null);
   const [registerInProgress, toggleRegisterInProgress] = useToggle(false);
   const [chatrooms, setChatrooms] = useState(null);
-  const [client, setClient] = useState(null);
+
+  //Lazy initial state prevents multiple sockets being created
+  const [client, setClient] = useState(() => {
+    const initialState = socket();
+    return initialState
+  });
 
   const onEnterChatroom = (chatroomName, noUser, success) => {
     if (user) {
@@ -85,22 +90,7 @@ function App() {
 
   //Get all chatrooms when first loaded and set client
   useEffect(() => {
-    const init = async () => {
-      //Assure only 1 socket gets created
-      if (client === null) {
-        const clientCache = window.localStorage.getItem("client");
-        if (clientCache === null) {
-          setClient(socket());
-          window.localStorage.setItem("client", client);
-        } else {
-          setClient(clientCache);
-        }
-      }
-    };
-    init().then(() => {
-      console.log(client);
-      getChatrooms()
-    });
+    setTimeout(() => getChatrooms(), 5000);
   }, []);
 
   return (
